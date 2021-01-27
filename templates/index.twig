@@ -2,5 +2,9 @@
 
 {% block body %}
     <h1>Home page</h1>
-    <p>You are not logged in</p>
+    {% if user is not null %}
+        <p>Hello, {{ user.username|escape }} ({{ user.email|escape }})</p>
+    {% else %}
+        <p>You are not logged in</p>
+    {% endif %}
 {% endblock %}

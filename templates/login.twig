@@ -2,5 +2,22 @@
 
 {% block body %}
     <h1>Login page</h1>
-    <p>You are not logged in</p>
+    {% if message is not null %}
+        <div class="alert alert-danger" role="alert">
+            {{ message }}
+        </div>
+    {% endif %}
+
+    <form action="/login-post" method="post">
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" name="email" class="form-control" id="email" value="{{ form ? form.email }}" />
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="text" name="password" class="form-control" id="password" value="" />
+        </div>
+        <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+
 {% endblock %}

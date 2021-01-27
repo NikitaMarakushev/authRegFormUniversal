@@ -13,12 +13,19 @@ class Authorization
     private Database $database;
 
     /**
+     * @var Session
+     */
+    private Session $session;
+
+    /**
      * Authorization constructor.
      * @param Database $database
+     * @param Session $session
      */
-    public function __construct(Database $database)
+    public function __construct(Database $database, Session $session)
     {
         $this->database = $database;
+        $this->session = $session;
     }
 
     /**
@@ -41,23 +48,74 @@ class Authorization
             throw new AuthorizationException('Passwords are not equal');
         }
 
-        /** @var TYPE_NAME $statement */
+
+        $statement = $this->database->getConnection()->prepare(
+            'SELECT * FROM user WHERE email = :email'
+        );
+        $statement->execute([
+            'email' => $data['email']
+        ]);
+        $user = $statement->fetch();
+        if (!empty($user)) {
+            throw new AuthorizationException('User with such email is already exists');
+        }
+
+        //Username validating
+        $statement = $this->database->getConnection()->prepare(
+            'SELECT * FROM user WHERE username = :username'
+        );
+        $statement->execute([
+            'username' => $data['username']
+        ]);
+
+        $user = $statement->fetch();
+        if (!empty($user)) {
+            throw new AuthorizationException('User with such username is already exists');
+        }
+
         $statement = $this->database->getConnection()->prepare(
             'INSERT INTO user (email, username, password) VALUES (:email, :username, :password)'
         );
 
-        /** @var TYPE_NAME $statement */
-          $statement->execute([
-              'email' => $data['email'],
-              'username' => $data['username'],
-              'password' => password_hash($data['password'], PASSWORD_BCRYPT)
-           ]);
-//        $statement = (new \PDOStatement)->execute([
-//            'email' => $data['email'],
-//            'username' => $data['username'],
-//            'password' => password_hash($data['password'], PASSWORD_BCRYPT)
-//        ]);
-
+        $statement->execute([
+            'email' => $data['email'],
+            'username' => $data['username'],
+            'password' => password_hash($data['password'], PASSWORD_BCRYPT)
+        ]);
         return true;
+    }
+
+    public function login(string $email, $password): bool
+    {
+        if (empty($email)) {
+            throw new AuthorizationException('Email should not be empty');
+        }
+        if (empty($password)) {
+            throw new AuthorizationException('Password should not be empty');
+        }
+
+        $statement = $this->database->getConnection()->prepare(
+            'SELECT * FROM user WHERE email = :email'
+        );
+        $statement->execute([
+            'email' => $email
+        ]);
+
+        $user = $statement->fetch();
+
+        if (empty($user)) {
+            throw new AuthorizationException('User with such email is not found');
+        }
+
+        if (password_verify($password, $user['password'])) {
+            $this->session->setData('user', [
+                'user_id' => $user['user_id'],
+                'username' => $user['username'],
+                'email' => $user['email'],
+            ]);
+            return true;
+        }
+
+        throw new AuthorizationException('Incorrect email or password');
     }
 }
