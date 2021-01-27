@@ -12,7 +12,7 @@
     <li class="nav-item">
         <a class="nav-link" href="/">Home</a>
     </li>
-    {% of user is not null %}
+    {% if user is not null %}
         <li class="nav-item">
             <a class="nav-link" href="/logout">Logout</a>
         </li>
