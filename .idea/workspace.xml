@@ -2,13 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="31517b1d-4f48-4ad0-b5f2-11f5731cf4a3" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Authorization.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Authorization.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Database.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Database.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/login.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Session.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Session.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/parts/base.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/parts/base.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/register.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/register.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +73,7 @@
       <option name="presentableId" value="Default" />
       <updated>1611752983227</updated>
       <workItem from="1611752987646" duration="11064000" />
-      <workItem from="1611767764778" duration="6465000" />
+      <workItem from="1611767764778" duration="7441000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <created>1611753413115</created>
@@ -90,7 +89,21 @@
       <option name="project" value="LOCAL" />
       <updated>1611768614457</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="commit of working version">
+      <created>1611778691022</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1611778691022</updated>
+    </task>
+    <task id="LOCAL-00004" summary="commit of working version">
+      <created>1611778726552</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1611778726552</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -98,7 +111,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="commit" />
+    <MESSAGE value="commit of working version" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit of working version" />
   </component>
   <component name="WindowStateProjectService">
     <state x="790" y="131" key="#Inspections" timestamp="1611759038392">
@@ -113,10 +127,10 @@
       <screen x="0" y="40" width="1536" height="824" />
     </state>
     <state x="447" y="117" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.40.1536.824@0.40.1536.824" timestamp="1611776465288" />
-    <state x="161" y="40" key="CommitChangelistDialog2" timestamp="1611768607499">
+    <state x="161" y="40" key="CommitChangelistDialog2" timestamp="1611778723145">
       <screen x="0" y="40" width="1536" height="824" />
     </state>
-    <state x="161" y="40" key="CommitChangelistDialog2/0.40.1536.824@0.40.1536.824" timestamp="1611768607499" />
+    <state x="161" y="40" key="CommitChangelistDialog2/0.40.1536.824@0.40.1536.824" timestamp="1611778723145" />
     <state x="986" y="366" key="ComposerInitDialogKey" timestamp="1611754276942">
       <screen x="0" y="40" width="1536" height="824" />
     </state>
@@ -145,10 +159,10 @@
       <screen x="0" y="40" width="1536" height="824" />
     </state>
     <state x="1046" y="372" key="NewPhpFileDialog/0.40.1536.824@0.40.1536.824" timestamp="1611756576406" />
-    <state x="225" y="174" key="Vcs.Push.Dialog.v2" timestamp="1611768777931">
+    <state x="225" y="174" key="Vcs.Push.Dialog.v2" timestamp="1611778731361">
       <screen x="0" y="40" width="1536" height="824" />
     </state>
-    <state x="225" y="174" key="Vcs.Push.Dialog.v2/0.40.1536.824@0.40.1536.824" timestamp="1611768777931" />
+    <state x="225" y="174" key="Vcs.Push.Dialog.v2/0.40.1536.824@0.40.1536.824" timestamp="1611778731361" />
     <state x="863" y="209" key="run.anything.popup" timestamp="1611760935136">
       <screen x="0" y="40" width="1536" height="824" />
     </state>

@@ -28,6 +28,7 @@ class Authorization
         $this->session = $session;
     }
 
+
     /**
      * @param array $data
      * @return bool
@@ -49,34 +50,46 @@ class Authorization
         }
 
 
+        /** @var TYPE_NAME $statement */
         $statement = $this->database->getConnection()->prepare(
             'SELECT * FROM user WHERE email = :email'
         );
+
+        /** @var TYPE_NAME $statement */
         $statement->execute([
             'email' => $data['email']
         ]);
+
+        /** @var TYPE_NAME $user */
         $user = $statement->fetch();
         if (!empty($user)) {
             throw new AuthorizationException('User with such email is already exists');
         }
 
         //Username validating
+        /** @var TYPE_NAME $statement */
         $statement = $this->database->getConnection()->prepare(
             'SELECT * FROM user WHERE username = :username'
         );
+
+        /** @var TYPE_NAME $statement */
         $statement->execute([
             'username' => $data['username']
         ]);
 
+        /** @var TYPE_NAME $statement */
         $user = $statement->fetch();
         if (!empty($user)) {
             throw new AuthorizationException('User with such username is already exists');
         }
 
+
+        /** @var TYPE_NAME $statement */
         $statement = $this->database->getConnection()->prepare(
             'INSERT INTO user (email, username, password) VALUES (:email, :username, :password)'
         );
 
+        /** @var TYPE_NAME $statement */
         $statement->execute([
             'email' => $data['email'],
             'username' => $data['username'],
@@ -85,6 +98,12 @@ class Authorization
         return true;
     }
 
+    /**
+     * @param string $email
+     * @param $password
+     * @return bool
+     * @throws AuthorizationException
+     */
     public function login(string $email, $password): bool
     {
         if (empty($email)) {

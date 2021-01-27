@@ -36,6 +36,7 @@ $sessionMiddleWare = function (ServerRequestInterface $request, RequestHandlerIn
 };
 
 
+/** @var TYPE_NAME $app */
 $app->add($sessionMiddleWare);
 
 $config = include_once  'config/database.php';
@@ -43,7 +44,10 @@ $dsn = $config['dsn'];
 $username = $config['username'];
 $password = $config['password'];
 
+/** @var TYPE_NAME $database */
 $database = new Database($dsn, $username, $password);
+
+/** @var TYPE_NAME $authorization */
 $authorization = new Authorization($database, $session);
 
 $app->get('/', function (ServerRequestInterface $request, ResponseInterface $response) use ($twig, $session) {

@@ -28,6 +28,7 @@ class Session
         return !empty($_SESSION[$key]) ? $_SESSION[$key] : null;
     }
 
+
     public function save(): void
     {
         session_write_close();

@@ -14,6 +14,11 @@ class Database
      */
     private PDO $connection;
 
+    /**
+     * @param string $dsn
+     * @param string $username
+     * @param string $password
+     */
     public function __constructor(string $dsn, string $username = '', string $password = '')
     {
         try {
