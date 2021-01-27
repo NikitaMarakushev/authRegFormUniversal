@@ -1,0 +1,25 @@
+{% extends 'parts/base.twig' %}
+
+{% block body %}
+    <h1>Register page</h1>
+    <form method="post" action="/register-post">
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" name="username" class="form-control" id="username" value="" />
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" name="email" class="form-control" id="email" aria-describedby="emailHelp" value="" />
+            <small id="emailHelp" class="form-text text-muted">We'll never share it</small>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="text" name="password" class="form-control" id="password" value="" />
+        </div>
+        <div class="form-group">
+            <label for="confirm-password">Confirm Password</label>
+            <input type="password" name="confirm_password" class="form-control" id="confirm_password" value="" />
+        </div>
+        <button type="submit" class="btn btn-primary">Register</button>
+    </form>
+{% endblock %}
