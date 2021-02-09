@@ -1,5 +1,6 @@
 <?php
 
+//Using necesary namespaces
 use App\Authorization;
 use App\AuthorizationException;
 use App\Database;
@@ -20,6 +21,7 @@ $app = AppFactory::create();
 $app->addBodyParsingMiddleware();
 
 $session = new Session();
+
 /**
  * @param ServerRequestInterface $request
  * @param RequestHandlerInterface $handler
@@ -32,7 +34,6 @@ $sessionMiddleWare = function (ServerRequestInterface $request, RequestHandlerIn
     $session->save();
 
     return $response;
-
 };
 
 
@@ -51,10 +52,10 @@ $database = new Database($dsn, $username, $password);
 $authorization = new Authorization($database, $session);
 
 $app->get('/', function (ServerRequestInterface $request, ResponseInterface $response) use ($twig, $session) {
+    
     $body = $twig->render('index.twig', [
         'user' => $session->getData('user')
     ]);
-
     $response->getBody()->write($body);
 
     return $response;
@@ -119,4 +120,3 @@ $app->get('/logout', function (ServerRequestInterface $request, ResponseInterfac
 
 
 $app->run();
-
